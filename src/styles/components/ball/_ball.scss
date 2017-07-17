@@ -15,13 +15,13 @@
 
     /* 기타 */
     border-radius: 100%;
-    cursor: pointer;
+    //cursor: none;
     user-select: none;
     transition: background-color 0.75s;
 }
 
 .BallList {
-    margin-top: 2rem;
+    margin-top: 1rem;
     display: flex;
     justify-content: left;
     flex-wrap: wrap;

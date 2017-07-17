@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { List } from 'immutable';
 
 const BallList = ({ balls }) => {
+    //console.log('balls: '+ JSON.stringify(balls));
     const ballList = balls.map(
         (ball, i) => (
             <Ball
