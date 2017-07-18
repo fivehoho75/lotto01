@@ -1,13 +1,16 @@
-import React from 'react';
 import BallList from 'components/ball/BallList'
+import { connect } from 'react-redux';
 
-const BallContainer = ({balls}) => {
-    //console.log('BallContainer: ' + JSON.stringify(balls));
-    return (
-            <div>
-                <BallList balls={balls}/>  
-            </div>
-        );
-};
+const mapStateToProps = (state) => ({
+    balls: state.get('balls')
+});
+
+const mapDispatchToProps = (dispatch) => ({
+});
+
+const BallContainer = connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(BallList);
 
 export default BallContainer;

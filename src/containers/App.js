@@ -4,38 +4,27 @@ import BallContainer from './BallContainer';
 import Logo from 'components/header/Logo'
 import ActionButton from './ActionButton'
 import { getRandom } from 'utils';
+import { connect } from 'react-redux';
+import * as actions from 'modules';
 
 class App extends Component {
-
-    constructor(props) {
-        super(props);
-
-        this.state = {
-            value: getRandom()
-        }
-    };
-
-    handleButton = (types) => {
-        //console.log('===========handleButton');
-        this.setState({value: getRandom()});
-    };
-
     render() {
-        const { handleButton } = this;
-
+        const { onMake } = this.props;
         //console.log('state: '+ this.state.value);
         return (
             <div>
-                <Header>
-                    <Logo/>
-                </Header>
-                <ActionButton onClick={
-                    () => handleButton('make')
-                }/>
-                <BallContainer balls={this.state.value}/>
+                <div className="ui menu">
+                    <div className="header item logo">Lotto Creator</div>   
+                </div>
+                <ActionButton onMake={onMake}/>
+                <BallContainer/>
             </div>
         );
     }
 }
 
-export default App;
+const mapToDispatch = (dispatch) => ({
+    onMake: () => dispatch(actions.make(getRandom()))
+});
+
+export default connect(null, mapToDispatch)(App);

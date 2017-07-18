@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import App from './App';
+import { Provider } from 'react-redux';
 
 class Root extends Component {
     render() {
+        const { store } = this.props;
         return (
-            <div>
+            <Provider store={store}>
                 <App/>  
-            </div>
+            </Provider>
         );
     }
 }

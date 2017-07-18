@@ -16,8 +16,8 @@ Ball.propTypes = {
 };
 
 Ball.defaultProps = {
-    number: 0,
-    color: 'black'
+    number: 1,
+    color: 'orange'
 };
 
 export default Ball;

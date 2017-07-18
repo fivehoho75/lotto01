@@ -5,12 +5,18 @@ export function getRandom() {
     for(let i=0; i < 6; i++) {
         //console.log('ran: ' + i + " " + getRandomNum());
         let num = getRandomNum();
-        let ball = Map({
-            color: getColor(num),
-            number: num
-        });
         //console.log('ball: ' + JSON.stringify(ball));
-        balls = balls.push(ball);
+
+        let result = balls.find( (obj) => obj.get('number') === num);
+        //console.log('comp: ' + i + " " + num + " " +result);
+
+        if ( result !== undefined) i--;
+        else balls = balls.push(
+            Map({
+                color: getColor(num),
+                number: num
+            })
+        );
     }
     
     //console.log('balls: ' + JSON.stringify(balls));

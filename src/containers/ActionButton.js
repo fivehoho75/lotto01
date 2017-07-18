@@ -1,10 +1,10 @@
 import React from 'react';
 import { Button, Icon } from 'semantic-ui-react';
 
-const ActionButton = ({onClick}) => {
+const ActionButton = ({onMake}) => {
     return (
         <div className="ActionButton-wrapper">
-            <Button color='grey' onClick={onClick}>
+            <Button color='orange' onClick={onMake}>
                 <Icon name="wizard" fitted/>생성
             </Button>
         </div>

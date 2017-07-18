@@ -5,6 +5,13 @@ import { List } from 'immutable';
 
 const BallList = ({ balls }) => {
     //console.log('balls: '+ JSON.stringify(balls));
+
+    if ( balls == null ) 
+        return (
+            <div className="BallList">
+            </div>
+    );
+
     const ballList = balls.map(
         (ball, i) => (
             <Ball
