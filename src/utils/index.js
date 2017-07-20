@@ -1,6 +1,24 @@
 import { List, Map } from 'immutable';
 
 export function getRandom() {
+    let bEven = false;
+    let bCon = false;
+    let balls = List();
+    
+    do {
+        balls = getList();
+        bEven = checkEven(balls);
+        bCon = checkCon(balls);
+        //console.log('bEven: ', bEven, 'bCon: ', bCon);
+        //console.log('balls: ' + JSON.stringify(balls));
+    }
+    while (bEven === true || bCon === true);
+
+    //console.log('testBalls: ' + JSON.stringify(testBalls.get(0)));
+    return balls;
+}
+
+function getList() {
     let balls = List();
     for(let i=0; i < 6; i++) {
         //console.log('ran: ' + i + " " + getRandomNum());
@@ -18,8 +36,7 @@ export function getRandom() {
             })
         );
     }
-    
-    //console.log('balls: ' + JSON.stringify(balls));
+
     balls = balls.sort(
         (a, b) => {
             let nRet = 0;
@@ -30,7 +47,7 @@ export function getRandom() {
             return nRet;
         }
     );
-    //console.log('sort balls: ' + JSON.stringify(balls));
+
     return balls;
 }
 
@@ -44,9 +61,36 @@ function getColor(num) {
         'orange',
         '#0080FF',
         'red',
-        '#A0A0A0',
+        '#404040',
         '#009900'
     ];
 
     return colors[Math.floor(num / 10)];
+}
+
+function checkEven(balls) {
+    let nEven = 0;
+    balls.forEach(function(element) {
+        //console.log(element.get('number'));
+        if ( element.get('number') % 2 === 0 ) nEven++;
+    }, this);
+
+    return nEven < 2 || nEven > 4;
+}
+
+function checkCon(balls) {
+    let nCon = 0;
+    let preNum = -1;
+    balls.forEach(function(element) {
+        //console.log(element.get('number'));
+        let num = element.get('number');
+        if(preNum === -1) preNum = num;
+        else {
+            if(num-preNum === 1) nCon++;        
+        }
+        //console.log("==", preNum, num);
+        preNum=num;
+    }, this);
+
+    return nCon > 1;
 }

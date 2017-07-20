@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-import Header from 'components/header/Header';
 import BallContainer from './BallContainer';
-import Logo from 'components/header/Logo'
 import ActionButton from './ActionButton'
 import { getRandom } from 'utils';
 import { connect } from 'react-redux';
