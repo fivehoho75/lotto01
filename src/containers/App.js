@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import BallContainer from './BallContainer';
 import ActionButton from './ActionButton'
-import { getRandom } from 'utils';
+import { getRandomList } from 'utils';
 import { connect } from 'react-redux';
 import * as actions from 'modules';
 
@@ -22,7 +22,7 @@ class App extends Component {
 }
 
 const mapToDispatch = (dispatch) => ({
-    onMake: () => dispatch(actions.make(getRandom()))
+    onMake: () => dispatch(actions.make(getRandomList()))
 });
 
 export default connect(null, mapToDispatch)(App);

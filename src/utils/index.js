@@ -1,6 +1,10 @@
 import { List, Map } from 'immutable';
 
-export function getRandom() {
+export function getRandomList(nLoop = 1) {
+    return getRandom();
+}
+
+function getRandom() {
     let bEven = false;
     let bCon = false;
     let balls = List();
