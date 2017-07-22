@@ -4,14 +4,7 @@ import PropTypes from 'prop-types';
 import { List } from 'immutable';
 
 const BallList = ({ balls }) => {
-    //console.log('balls: '+ JSON.stringify(balls));
-
-    if ( balls == null ) 
-        return (
-            <div className="BallList">
-            </div>
-    );
-
+    //console.log('balls: ', JSON.stringify(balls));
     const ballList = balls.map(
         (ball, i) => (
             <Ball
@@ -34,7 +27,7 @@ BallList.propTypes = {
 };
 
 BallList.defaultProps = {
-    counters: []
+    balls: []
 };
 
 export default BallList;

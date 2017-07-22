@@ -8,14 +8,17 @@ export const make = createAction(MAKE);
 export const makeLoop = createAction(MAKELOOP);
 // init state
 const initialState = Map({
-    balls: List([])
+    balls: List([[]]),
+    count: 1
 });
 
 export default handleActions({
     [MAKE]: (state, action) => {
-        return state.set('balls', action.payload);
+        return state.set('balls', action.payload)
+                    .set('count', 1);
     },
     [MAKELOOP]: (state, action) => {
-        return state.set('balls', action.payload);
+        return state.set('balls', action.payload)
+                    .set('count', 5);
     },
 }, initialState);
