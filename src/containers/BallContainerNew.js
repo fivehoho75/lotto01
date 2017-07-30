@@ -9,9 +9,9 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
 });
 
-const BallContainer = connect(
+const BallContainerNew = connect(
     mapStateToProps,
     mapDispatchToProps
 )(BallSet);
 
-export default BallContainer;
+export default BallContainerNew;

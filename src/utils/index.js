@@ -7,6 +7,7 @@ export function getRandomList(nLoop = 1) {
         balls = balls.push(getRandom());
     }
 
+     balls = balls.push({count: nLoop});
     //console.log('getRandomList - balls: '+ JSON.stringify(balls));
     return balls;
 }
@@ -14,16 +15,18 @@ export function getRandomList(nLoop = 1) {
 export function getRandom() {
     let bEven = false;
     let bCon = false;
+    let bHigh = false;
     let balls = List();
     
     do {
         balls = getList();
         bEven = checkEven(balls);
         bCon = checkCon(balls);
-        //console.log('bEven: ', bEven, 'bCon: ', bCon);
+        bHigh = checkHL(balls);
+        //console.log('bEven: ', bEven, 'bCon: ', bCon, 'bHigh: ', bHigh);
         //console.log('balls: ' + JSON.stringify(balls));
     }
-    while (bEven === true || bCon === true);
+    while (bEven === true || bCon === true || bHigh === true);
 
     //console.log('testBalls: ' + JSON.stringify(testBalls.get(0)));
     return balls;
@@ -76,9 +79,10 @@ function getColor(num) {
         '#009900'
     ];
 
-    return colors[Math.floor(num / 10)];
+    return colors[Math.floor((num-1) / 10)];
 }
 
+// 짝수 비율을 검사
 function checkEven(balls) {
     let nEven = 0;
     balls.forEach(function(element) {
@@ -89,6 +93,7 @@ function checkEven(balls) {
     return nEven < 2 || nEven > 4;
 }
 
+// 연속인 숫자 검사
 function checkCon(balls) {
     let nCon = 0;
     let preNum = -1;
@@ -104,4 +109,15 @@ function checkCon(balls) {
     }, this);
 
     return nCon > 1;
+}
+
+// 고저 검사
+function checkHL(balls) {
+    let nHigh = 0;
+    balls.forEach(function(element) {
+        let num = element.get('number');
+        if(num > 22 ) nHigh++;
+    }, this);
+
+    return nHigh < 2 || nHigh > 4;
 }

@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
-import { List } from 'immutable';
 import Ball from './Ball';
 
 class BallSet extends Component {
     render() {
-        let context = List().toJS();
+        let context = [];
 
         //console.log('count: ', this.props.count);
         //console.log('props00: ', JSON.stringify(this.props.balls));
@@ -30,7 +29,7 @@ class BallSet extends Component {
         };
         
         return (
-            <div>
+            <div className="left" >
                 {context}
             </div>
         );

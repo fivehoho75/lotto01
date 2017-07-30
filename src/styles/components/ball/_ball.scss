@@ -20,6 +20,28 @@
     transition: background-color 0.75s;
 }
 
+.BallSmall {
+    /* 레이아웃 */
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0.1rem;
+
+     /* 색상 */
+    color: white;
+
+    /* 폰트 */
+    font-size: 1rem;
+
+    /* 기타 */
+    border-radius: 100%;
+    //cursor: none;
+    user-select: none;
+    transition: background-color 0.75s;
+}
+
 .BallList {
     margin-top: 0.1rem;
     display: flex;
