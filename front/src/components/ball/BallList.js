@@ -5,7 +5,7 @@ import { List, Map } from 'immutable';
 class BallList extends Component {
     render() {
         let balls = List();
-        for(let i=0;i<46;i++) {
+        for(let i=0;i<45;i++) {
             balls=balls.push(
                 Map({
                     color: getColor(i+1),

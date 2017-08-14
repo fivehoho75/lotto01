@@ -66,7 +66,7 @@ function getList() {
 }
 
 function getRandomNum() {
-    return Math.floor(Math.random() * 46) + 1;
+    return Math.floor(Math.random() * 45) + 1;
 }
 
 function getColor(num) {
