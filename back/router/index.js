@@ -1,5 +1,5 @@
-import express from 'express';
+import Router from 'koa-router';
 
-const router = express.Router();
+const router = new Router();
 
 export default router;
