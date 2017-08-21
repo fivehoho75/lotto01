@@ -1,8 +1,8 @@
 import Router from 'koa-router';
-import auth from './auth';
+import * as cont from './controller';
 
 const router = new Router();
 
-router.use('/auth', auth.routes(), auth.allowedMethods());
+router.get('/login/:provider', cont.login);
 
 export default router;

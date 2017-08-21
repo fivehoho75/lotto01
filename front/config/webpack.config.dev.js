@@ -244,7 +244,12 @@ module.exports = {
               ],
             },
           },
-          'sass-loader',
+          {
+            loader: require.resolve('sass-loader'),
+            options: {
+              includePaths: [paths.globalStyles]
+            }
+          }
         ],
       },
     ],
